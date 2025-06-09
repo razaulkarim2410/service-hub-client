@@ -1,9 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { use, useRef, useState } from 'react';
 import { FaEye } from 'react-icons/fa';
 import {  NavLink, useLocation, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../context/AuthContext/AuthContext';
 
 const LogIn = () => {
+  const {logInUser}= use(AuthContext)
   const [error, setError] = useState('')
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation()
@@ -17,7 +19,7 @@ const LogIn = () => {
     const email = form.email.value
     const password = form.password.value
     console.log({ email, password })
-    signin(email, password)
+    logInUser(email, password)
       .then((result) => {
         const user = result.user
         console.log(user)
