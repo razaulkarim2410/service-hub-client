@@ -3,6 +3,7 @@ import { NavLink } from 'react-router';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
 import img from '../../assets/icons8-user-100 (2).png'
+import logo from '../../assets/servicehub-high-resolution-logo-transparent.png'
 
 const NavBar = () => {
 
@@ -53,8 +54,10 @@ const NavBar = () => {
             {links}
           </ul>
         </div>
-        
+        <div className='flex gap-2 items-center'>
+          <img className='w-13 h-13 rounded-full' src={logo} alt="" />
         <h2 style={{ color: 'purple' }} className='text-3xl font-bold'>Service<span style={{ color: 'green' }}>Hub</span></h2>
+        </div>
       
       </div>
       
@@ -63,10 +66,10 @@ const NavBar = () => {
           {links}
         </ul>
       </div>
-      <div className="navbar-end">
-        <div className="relative group">
+      <div className="navbar-end gap-2">
+        <div className="relative group ">
           <img
-            className='w-10 h-10 rounded-full cursor-pointer'
+            className='w-10 h-10  rounded-full cursor-pointer'
             src={user?.photoURL || img}
             alt="User Avatar"
           />

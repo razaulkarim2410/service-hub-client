@@ -10,6 +10,7 @@ import AddService from "../pages/addService/AddService";
 import ManageService from "../pages/manageService/ManageService";
 import BookedServices from "../pages/bookedServices/BookedServices";
 import ServiceToDo from "../pages/serviceToDo/ServiceToDo";
+import PrivacyPolicy from "../pages/Shared/PrivacyPolicy";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         Component: Register,
+      },
+      {
+        path: '/privacyPolicy',
+        Component: PrivacyPolicy
       }
     ]
   },
