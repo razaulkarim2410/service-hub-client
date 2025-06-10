@@ -6,7 +6,7 @@ import logo from '../../assets/servicehub-high-resolution-logo-transparent.png'
 
 const Footer = () => {
   return (
-    <div className=' mx-auto  w-11/12'>
+    <div>
       <footer className="footer justify-around sm:footer-horizontal bg-purple-950 text-neutral-content mt-14 p-10">
 
         <nav className=''>

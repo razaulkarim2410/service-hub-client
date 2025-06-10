@@ -11,6 +11,7 @@ import ManageService from "../pages/manageService/ManageService";
 import BookedServices from "../pages/bookedServices/BookedServices";
 import ServiceToDo from "../pages/serviceToDo/ServiceToDo";
 import PrivacyPolicy from "../pages/Shared/PrivacyPolicy";
+import ErrorPage from "../pages/errorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -53,8 +54,14 @@ const router = createBrowserRouter([
         path: '/privacyPolicy',
         Component: PrivacyPolicy
       }
+     
     ]
+    
   },
+   {
+      path: '/*',
+      Component: ErrorPage
+    }
 ]);
 
 export default router;
