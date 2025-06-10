@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
 
 const LogIn = () => {
+  
   const {logInUser}= use(AuthContext)
   const [error, setError] = useState('')
   const [showPassword, setShowPassword] = useState(false);

@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { NavLink } from 'react-router';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
+import img from '../../assets/icons8-user-100 (2).png'
 
 const NavBar = () => {
 
@@ -49,6 +50,18 @@ const NavBar = () => {
         </ul>
       </div>
       <div className="navbar-end">
+        <div className="relative group">
+          <img
+            className='w-10 h-10 rounded-full cursor-pointer'
+            src={user?.photoURL || img}
+            alt="User Avatar"
+          />
+          {user?.displayName && (
+            <div className="absolute left-0 mt-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+              {user.displayName}
+            </div>
+          )}
+        </div>
          {user ? <button onClick={handleLogout} className='btn'>LogOut</button> : <>
          <NavLink to={'/login'} className="btn">LogIn</NavLink>
          </>}
