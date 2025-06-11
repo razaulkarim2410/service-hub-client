@@ -1,7 +1,7 @@
 import React from 'react';
 import FindUs from './FindUs';
 import { Link } from 'react-router';
-import logo from '../../assets/servicehub-high-resolution-logo-transparent.png'
+import logo from '../../assets/hub-icon.png'
 
 
 const Footer = () => {

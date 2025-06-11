@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../../firebase/firebase.init';
 import { FcGoogle } from 'react-icons/fc';
+import { Helmet } from 'react-helmet';
+
 
 const Register = () => {
 
@@ -17,13 +19,14 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate()
   const provider = new GoogleAuthProvider()
+  
   const handleGoogleSignIn = () => {
     signInWithPopup(auth, provider)
       .then(result => {
         console.log(result.user);
         setUser(result.user);
         navigate("/");
-         Swal.fire({
+        Swal.fire({
           title: "You Register Successfully !",
           icon: "success",
           draggable: true
@@ -75,6 +78,9 @@ const Register = () => {
   }
   return (
     <div className='flex justify-center items-center min-h-screen pt-12'>
+      <Helmet>
+        <title>Register</title>
+      </Helmet>
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl ">
         <h2 className='text-2xl font-bold text-center py-4'>Register Your Account</h2>
         <form onSubmit={handleRegister} className="card-body">
