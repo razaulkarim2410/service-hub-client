@@ -4,7 +4,7 @@ import {
 import RootLayout from "../layouts/RootLayout";
 import Home from "../pages/Home/Home";
 import LogIn from "../pages/logIn/LogIn";
-import Service from "../pages/Service/Service";
+import Service from "../pages/Service/Services";
 import Register from "../pages/register/Register";
 import AddService from "../pages/addService/AddService";
 import ManageService from "../pages/manageService/ManageService";
@@ -12,6 +12,7 @@ import BookedServices from "../pages/bookedServices/BookedServices";
 import ServiceToDo from "../pages/serviceToDo/ServiceToDo";
 import PrivacyPolicy from "../pages/Shared/PrivacyPolicy";
 import ErrorPage from "../pages/errorPage/ErrorPage";
+import AllServicesPage from "../pages/allServicessPage/AllServicesPage";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        loader: () => fetch('http://localhost:3000/addServices'),
         Component: Home,
       },
       {
@@ -27,11 +29,16 @@ const router = createBrowserRouter([
         Component: Service,
       },
       {
+        path: "/all-services",
+        Component: AllServicesPage,
+        loader: () => fetch('http://localhost:3000/addServices'),
+      },
+      {
         path: '/dashboard/add-service',
         Component: AddService,
       },
       {
-        path:'/dashboard/manage-service',
+        path: '/dashboard/manage-service',
         Component: ManageService,
       },
       {
@@ -39,11 +46,11 @@ const router = createBrowserRouter([
         Component: BookedServices,
       },
       {
-        path:'/dashboard/service-to-do',
+        path: '/dashboard/service-to-do',
         Component: ServiceToDo,
       },
       {
-        path:'/login',
+        path: '/login',
         Component: LogIn,
       },
       {
@@ -54,14 +61,14 @@ const router = createBrowserRouter([
         path: '/privacyPolicy',
         Component: PrivacyPolicy
       }
-     
+
     ]
-    
+
   },
-   {
-      path: '/*',
-      Component: ErrorPage
-    }
+  {
+    path: '/*',
+    Component: ErrorPage
+  }
 ]);
 
 export default router;

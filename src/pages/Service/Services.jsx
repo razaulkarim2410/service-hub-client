@@ -1,15 +1,15 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-const Service = () => {
+const Services = () => {
   return (
     <div>
       <Helmet>
-        <title>Service</title>
+        <title>Services</title>
       </Helmet>
-      this is Service
+      
     </div>
   );
 };
 
-export default Service;
+export default Services;

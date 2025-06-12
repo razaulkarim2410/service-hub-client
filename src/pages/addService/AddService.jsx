@@ -1,13 +1,52 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
+import Swal from 'sweetalert2';
+import { AuthContext } from '../../context/AuthContext/AuthContext';
 
 const AddService = () => {
+  const { user } = useContext(AuthContext);
+
+  const handleAddService = (e) => {
+    e.preventDefault();
+    const form = e.target;
+
+    const newAddService = {
+      imageUrl: form.imageUrl.value,
+      serviceName: form.serviceName.value,
+      price: form.price.value,
+      serviceArea: form.serviceArea.value,
+      description: form.description.value,
+      providerName: user.displayName,
+      providerEmail: user.email,
+      providerImage: user.photoURL,
+    };
+
+    fetch('http://localhost:3000/addServices', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newAddService),
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.insertedId) {
+        Swal.fire({ title: "Service Added Successfully!", icon: "success" });
+        form.reset();
+      }
+    });
+  };
+
   return (
-    <div>
-      <Helmet>
-        <title>Add Service</title>
-      </Helmet>
-      AddService
+    <div className='p-10'>
+      <Helmet><title>Add Service</title></Helmet>
+      <h2 className='text-3xl font-bold text-center mb-8'>Add New Service</h2>
+      <form onSubmit={handleAddService} className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+        <input name="imageUrl" required placeholder="Image URL" className="input input-bordered w-full" />
+        <input name="serviceName" required placeholder="Service Name" className="input input-bordered w-full" />
+        <input name="price" required placeholder="Price" className="input input-bordered w-full" />
+        <input name="serviceArea" required placeholder="Service Area" className="input input-bordered w-full" />
+        <input name="description" required placeholder="Description" className="input input-bordered w-full col-span-2" />
+        <input type="submit" value="Add Service" className="btn btn-primary col-span-2" />
+      </form>
     </div>
   );
 };
