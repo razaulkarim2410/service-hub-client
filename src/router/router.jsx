@@ -4,7 +4,7 @@ import {
 import RootLayout from "../layouts/RootLayout";
 import Home from "../pages/Home/Home";
 import LogIn from "../pages/logIn/LogIn";
-import Service from "../pages/Service/Services";
+import Service from "../pages/Service/ServiceDetails";
 import Register from "../pages/register/Register";
 import AddService from "../pages/addService/AddService";
 import ManageService from "../pages/manageService/ManageService";
@@ -13,6 +13,8 @@ import ServiceToDo from "../pages/serviceToDo/ServiceToDo";
 import PrivacyPolicy from "../pages/Shared/PrivacyPolicy";
 import ErrorPage from "../pages/errorPage/ErrorPage";
 import AllServicesPage from "../pages/allServicessPage/AllServicesPage";
+
+import ServiceDetails from "../pages/Service/ServiceDetails";
 
 const router = createBrowserRouter([
   {
@@ -25,8 +27,8 @@ const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: '/service',
-        Component: Service,
+        path: '/services/:id',
+        Component: ServiceDetails,
       },
       {
         path: "/all-services",

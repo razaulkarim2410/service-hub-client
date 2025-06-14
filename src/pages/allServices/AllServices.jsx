@@ -25,7 +25,9 @@ const AllServices = ({ addService }) => {
         <p>{providerName}</p>
       </div>
       <div className="text-center mt-3">
-        <Link className="btn btn-primary">View Detail</Link>
+        <Link to={`/services/${addService._id}`} className="btn btn-outline">
+          View Details
+        </Link>
       </div>
     </div>
   );
