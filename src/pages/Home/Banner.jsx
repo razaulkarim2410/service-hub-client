@@ -2,11 +2,14 @@ import React from 'react';
 import { motion } from "motion/react"
 import banner1 from '../../assets/pexels-mart-production-7709255.jpg'
 import banner2 from '../../assets/pexels-olly-853151.jpg'
+import SearchBar from '../../component/SearchBar';
 
 const Banner = () => {
   return (
     <div className="hero bg-base-200 min-h-screen">
+      
   <div className="hero-content flex-col lg:flex-row-reverse">
+    
     <div className='flex-1'>
       <motion.img
       src={banner1}

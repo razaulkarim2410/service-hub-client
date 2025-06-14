@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import img from '../../assets/icons8-user-100 (2).png';
 import logo from '../../assets/hub-icon.png';
 import { NavLink, useNavigate } from 'react-router';
+import SearchBar from '../../component/SearchBar';
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -106,8 +107,9 @@ const NavBar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-
+      
       <div className="navbar-end gap-2">
+        <SearchBar></SearchBar>
         {/* Theme Toggle Button */}
         <button className="btn btn-outline btn-primary" onClick={toggleTheme}>
           {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
