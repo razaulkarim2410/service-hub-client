@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { motion } from "motion/react"
+
 
 
 const AllServices = ({ addService }) => {
@@ -14,10 +16,16 @@ const AllServices = ({ addService }) => {
   } = addService;
 
   return (
-    <div className="bg-base-200 p-4 rounded-xl mb-5">
-      <img src={imageUrl} alt="Service" className="rounded-xl h-52 w-full object-cover mb-3" />
+    <div
+      
+      className="bg-base-200 p-4 rounded-xl mb-5">
+      <motion.img 
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      onHoverStart={() => console.log('hover started!')}
+      src={imageUrl} alt="Service" className="rounded-xl h-52 w-full object-cover mb-3" />
       <h2 className="text-xl font-bold">Service: {serviceName}</h2>
-      <p>{description.slice(0, 100)}...</p>
+      <p>{description.slice(0, 100)}</p>
       <p>Area: {serviceArea}</p>
       <p>Price: ${price}</p>
       <div className="flex items-center gap-2 mt-2">
@@ -25,7 +33,7 @@ const AllServices = ({ addService }) => {
         <p>{providerName}</p>
       </div>
       <div className="text-center mt-3">
-        <Link to={`/services/${addService._id}`} className="btn btn-outline">
+        <Link to={`/services/${addService._id}`} className="btn btn-outline btn-secondary">
           View Details
         </Link>
       </div>

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
 import { Navigate } from 'react-router';
+import { Helmet } from 'react-helmet';
 
 const ServiceToDo = () => {
   const { user } = useContext(AuthContext);
@@ -35,6 +36,9 @@ const ServiceToDo = () => {
 
   return (
     <div className="p-6">
+      <Helmet>
+        <title>Services To Do</title>
+      </Helmet>
       <h2 className="text-2xl font-bold mb-4">Services To Do</h2>
       {bookings.length === 0 ? (
         <p>No services assigned to you yet.</p>

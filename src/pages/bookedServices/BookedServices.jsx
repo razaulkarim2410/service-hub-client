@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
 import { Navigate } from 'react-router';
+import { Helmet } from 'react-helmet';
 
 const BookedServices = () => {
   const { user } = useContext(AuthContext);
@@ -18,6 +19,9 @@ const BookedServices = () => {
 
   return (
     <div className="p-6">
+      <Helmet>
+        <title>My Booked Services</title>
+      </Helmet>
       <h2 className="text-2xl font-bold mb-4">My Booked Services</h2>
       {bookings.length === 0 ? (
         <p>You haven't booked any services yet.</p>

@@ -31,7 +31,7 @@ const Banner = () => {
       <p className="py-6">
         Fast, Trusted Solutions for Home, Beauty, Emergency & Electrical Services.All-in-One Service Platform for Repairs, Care, and Daily Essentials.
       </p>
-      <button className="btn btn-primary">Get Started</button>
+      <button className="btn btn-outline btn-secondary">Get Started</button>
     </div>
   </div>
 </div>

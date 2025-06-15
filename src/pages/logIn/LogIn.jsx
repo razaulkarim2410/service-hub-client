@@ -11,7 +11,7 @@ import { Helmet } from 'react-helmet';
 const LogIn = () => {
 
   const { logInUser, setUser } = use(AuthContext)
-  const [error, setError] = useState('')
+  const [ setError] = useState(" ")
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation()
   const navigate = useNavigate()
@@ -118,7 +118,7 @@ const LogIn = () => {
                 >
                   <FcGoogle /> Sign in With Google
                 </button>
-
+                
                 <button type='submit' className="btn btn-neutral mt-4">LogIn</button>
                 <p className='text-l font-bold pt-5'>Don't Have an Account ? {" "} <NavLink className='underline ' to={'/register'}>Register</NavLink></p>
               </fieldset>

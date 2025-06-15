@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
 import { Navigate } from 'react-router';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const ManageServices = () => {
   const { user } = useContext(AuthContext);
@@ -70,10 +71,13 @@ const ManageServices = () => {
       });
   };
 
-  if (!user) return <Navigate to="/login" />;
+  // if (!user) return <Navigate to="/login" />;
 
   return (
     <div className="p-6">
+      <Helmet>
+        <title>Manage Your Services</title>
+      </Helmet>
       <h2 className="text-2xl font-bold mb-4">Manage Your Services</h2>
       {services.length === 0 ? (
         <p>No services added yet.</p>

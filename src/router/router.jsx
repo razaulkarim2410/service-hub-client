@@ -15,6 +15,9 @@ import ErrorPage from "../pages/errorPage/ErrorPage";
 import AllServicesPage from "../pages/allServicessPage/AllServicesPage";
 
 import ServiceDetails from "../pages/Service/ServiceDetails";
+import PrivateRoute from "../pages/Shared/PrivateRoute";
+import ManageServices from "../pages/manageService/ManageService";
+import Loading from "../pages/loading/Loading";
 
 const router = createBrowserRouter([
   {
@@ -25,15 +28,20 @@ const router = createBrowserRouter([
         index: true,
         loader: () => fetch('http://localhost:3000/addServices'),
         Component: Home,
+        hydrateFallbackElement: <Loading></Loading>,
+        
       },
       {
         path: '/services/:id',
-        Component: ServiceDetails,
+        element: <PrivateRoute>
+          <ServiceDetails></ServiceDetails>
+        </PrivateRoute>
       },
       {
         path: "/all-services",
         Component: AllServicesPage,
         loader: () => fetch('http://localhost:3000/addServices'),
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: '/dashboard/add-service',
@@ -41,15 +49,21 @@ const router = createBrowserRouter([
       },
       {
         path: '/dashboard/manage-service',
-        Component: ManageService,
+       element:<PrivateRoute>
+        <ManageServices></ManageServices>
+       </PrivateRoute>,
       },
       {
         path: '/dashboard/booked-services',
-        Component: BookedServices,
+        element: <PrivateRoute>
+          <BookedServices></BookedServices>
+        </PrivateRoute>,
       },
       {
         path: '/dashboard/service-to-do',
-        Component: ServiceToDo,
+        element: <PrivateRoute>
+          <ServiceToDo></ServiceToDo>
+        </PrivateRoute>,
       },
       {
         path: '/login',
