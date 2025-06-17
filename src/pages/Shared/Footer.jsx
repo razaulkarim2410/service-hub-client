@@ -33,7 +33,7 @@ const Footer = () => {
 
 
       </footer>
-      <div class="text-center py-4 text-sm text-gray-500 border-t mt-8">
+      <div className='text-center py-4 text-sm text-gray-500 border-t mt-8'>
         © 2025 ServiceHub. All rights reserved.
       </div>
     </div>

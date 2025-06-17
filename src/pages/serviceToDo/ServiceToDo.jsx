@@ -1,15 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
 import { Navigate } from 'react-router';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
+
 
 const ServiceToDo = () => {
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
-
+  // const accessToken = localStorage.getItem('access-token');
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/booked-services/by-provider?email=${user.email}`)
+      fetch(`http://localhost:3000/booked-services/by-provider?email=${user.email}`, {
+        credentials: 'include'
+      
+      })
         .then(res => res.json())
         .then(data => setBookings(data));
     }
@@ -23,7 +27,7 @@ const ServiceToDo = () => {
     })
       .then(res => res.json())
       .then(() => {
-        // Update UI immediately
+
         setBookings(prev =>
           prev.map(b =>
             b._id === bookingId ? { ...b, serviceStatus: newStatus } : b

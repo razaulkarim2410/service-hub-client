@@ -7,7 +7,8 @@ import { useNavigate } from 'react-router';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../../firebase/firebase.init';
 import { FcGoogle } from 'react-icons/fc';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
+
 
 
 const Register = () => {

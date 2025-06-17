@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
 import { Navigate } from 'react-router';
 import Swal from 'sweetalert2';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
+
 
 const ManageServices = () => {
   const { user } = useContext(AuthContext);
@@ -11,7 +12,9 @@ const ManageServices = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/addServices?providerEmail=${user.email}`)
+      fetch(`http://localhost:3000/addServices?providerEmail=${user.email}`,{
+        credentials: 'include'
+      })
         .then(res => res.json())
         .then(data => setServices(data));
     }

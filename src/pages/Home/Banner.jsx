@@ -19,7 +19,7 @@ const Banner = () => {
     />
       <motion.img
       src={banner2}
-      animate={{x: [100, 150, 100]}}
+      animate={{x: [-100,30,-100]}}
       transition= {{duration: 10, repeat: Infinity}}
       className="max-w-sm rounded-t-[40px] rounded-br-[40px] border-s-10 border-b-10 border-blue-500 shadow-2xl"
     />
@@ -27,7 +27,7 @@ const Banner = () => {
     <div className='flex-1'>
       <motion.h1 
       initial={{ scale: 0 }} animate={{ scale: 1, transition:{duration: 4} }}
-       className="text-5xl font-bold">Your <motion.span animate={{color: ['#6c0f85','#089129 ','#914808'],transition: {duration: 2, repeat: Infinity} }}>Reliable </motion.span> Assistant</motion.h1>
+       className="text-5xl font-bold">Your <motion.span animate={{color: ['#6c0f85','#089129','#914808'],transition: {duration: 2, repeat: Infinity} }}>Reliable </motion.span> Assistant</motion.h1>
       <p className="py-6">
         Fast, Trusted Solutions for Home, Beauty, Emergency & Electrical Services.All-in-One Service Platform for Repairs, Care, and Daily Essentials.
       </p>

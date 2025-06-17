@@ -4,7 +4,7 @@ import { motion } from "motion/react"
 const WhyUs = () => {
   return (
 
-    <div className='py-10 mt-5 '>
+    <div className='py-10 mt-5  justify-center items-center'>
       <p className='text-bold text-purple-900 text-xl'>.........Why Choose US</p>
       <h2 className='text-4xl font-bold text-purple-900 mb-6'>Because we care about your safety.....</h2>
       <div className='grid grid-cols-1 md:grid-cols-2 items-center'>
@@ -49,7 +49,7 @@ const WhyUs = () => {
           </div>
 
         </div>
-        <div>
+        <div className=''>
           <img className='rounded-xl w-[530px]' src="https://i.ibb.co/Fqh04ZFf/pexels-fauxels-3184291.jpg" alt="" />
           <h2 className='text-4xl font-bold text-purple-900 text-center pt-2'>Trust in all our services.</h2>
         </div>

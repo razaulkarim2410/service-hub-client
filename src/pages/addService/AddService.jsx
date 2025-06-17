@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-import { Helmet } from 'react-helmet';
+
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
+import { Helmet } from 'react-helmet-async';
 
 const AddService = () => {
   const { user } = useContext(AuthContext);

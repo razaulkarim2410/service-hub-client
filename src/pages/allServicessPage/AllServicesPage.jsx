@@ -1,8 +1,9 @@
 import React from 'react';
 
 import AllServices from '../allServices/AllServices';
-import { Helmet } from 'react-helmet';
+;
 import { useLoaderData } from 'react-router';
+import { Helmet } from 'react-helmet-async';
 
 const AllServicesPage = () => {
   const allServices = useLoaderData();

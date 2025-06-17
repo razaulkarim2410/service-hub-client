@@ -1,7 +1,8 @@
 import React from 'react';
 import error from '../../assets/warning-8908707_1280 (1).png'
 import { Link } from 'react-router';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
+
 
 const ErrorPage = () => {
   return (

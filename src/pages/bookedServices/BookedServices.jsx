@@ -1,19 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
 import { Navigate } from 'react-router';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
+
 
 const BookedServices = () => {
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
-
+  console.log('user in the token', user.accessToken)
   useEffect(() => {
     if (user?.email) {
       fetch(`http://localhost:3000/bookings?userEmail=${user.email}`)
         .then(res => res.json())
         .then(data => setBookings(data));
     }
-  }, [user?.email]);
+  }, [user?.email, user.accessToken]);
 
   if (!user) return <Navigate to="/login" />;
 
