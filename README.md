@@ -1,11 +1,9 @@
 📁 Assignment Category: Assignment-11-assignment_category_02
 
-🌐 Live Site URL: 
+Live Website: https://service-hub-ffbec.web.app/
+Website Name: ServiceHub
 
-📝 GitHub Repositories
-Client: 
 
-Server: 
 
 🚀 Project Overview
 ServiceHub is a full-stack service-sharing web application built with React, Express, MongoDB, and Firebase Authentication. It allows users to add, update, delete, book, and manage services in a seamless and interactive way. This project demonstrates authentication, route protection, data persistence, dynamic status handling, and responsive UI—all designed to give users the best experience in managing and sharing services.

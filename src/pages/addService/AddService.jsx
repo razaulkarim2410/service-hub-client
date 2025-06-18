@@ -22,7 +22,7 @@ const AddService = () => {
       providerImage: user.photoURL,
     };
 
-    fetch('http://localhost:3000/addServices', {
+    fetch('https://service-hub-server.vercel.app/addServices', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newAddService),

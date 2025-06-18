@@ -47,8 +47,8 @@ const NavBar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink className="btn btn-outline btn-secondary mx-2" to="/services/:id">
-          Services
+        <NavLink className="btn btn-outline btn-secondary mx-2" to="/all-services">
+        Services
         </NavLink>
       </li>
       {user && (

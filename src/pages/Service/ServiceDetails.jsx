@@ -10,7 +10,7 @@ const ServiceDetails = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/addServices/${id}`)
+    fetch(`https://service-hub-server.vercel.app/addServices/${id}`)
       .then(res => res.json())
       .then(data => {
         console.log("Fetched service:", data);

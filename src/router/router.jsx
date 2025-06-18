@@ -26,7 +26,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('http://localhost:3000/addServices'),
+        loader: () => fetch('https://service-hub-server.vercel.app/addServices'),
         Component: Home,
         hydrateFallbackElement: <Loading></Loading>,
         
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       {
         path: "/all-services",
         Component: AllServicesPage,
-        loader: () => fetch('http://localhost:3000/addServices'),
+        loader: () => fetch('https://service-hub-server.vercel.app/addServices'),
         hydrateFallbackElement: <Loading></Loading>,
       },
       {

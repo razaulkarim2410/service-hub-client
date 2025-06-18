@@ -3,31 +3,46 @@ import { AuthContext } from '../../context/AuthContext/AuthContext';
 import { Navigate } from 'react-router';
 import { Helmet } from 'react-helmet-async';
 
-
 const ServiceToDo = () => {
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
-  // const accessToken = localStorage.getItem('access-token');
+  const [error, setError] = useState(null);
+
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/booked-services/by-provider?email=${user.email}`, {
-        credentials: 'include'
-      
+      fetch(`https://service-hub-server.vercel.app/booked-services/by-provider?email=${user.email}`, {
+        credentials: 'include',
       })
-        .then(res => res.json())
-        .then(data => setBookings(data));
+        .then(res => {
+          if (!res.ok) {
+            throw new Error('Unauthorized or failed to fetch');
+          }
+          return res.json();
+        })
+        .then(data => {
+          if (Array.isArray(data)) {
+            setBookings(data);
+          } else {
+            console.warn('Unexpected response:', data);
+            setBookings([]);
+          }
+        })
+        .catch(err => {
+          console.error('Fetch error:', err);
+          setError('Failed to load your services. Please try again.');
+          setBookings([]);
+        });
     }
   }, [user?.email]);
 
   const handleStatusChange = (bookingId, newStatus) => {
-    fetch(`http://localhost:3000/bookings/${bookingId}`, {
+    fetch(`https://service-hub-server.vercel.app/bookings/${bookingId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ serviceStatus: newStatus })
+      body: JSON.stringify({ serviceStatus: newStatus }),
     })
       .then(res => res.json())
       .then(() => {
-
         setBookings(prev =>
           prev.map(b =>
             b._id === bookingId ? { ...b, serviceStatus: newStatus } : b
@@ -44,18 +59,29 @@ const ServiceToDo = () => {
         <title>Services To Do</title>
       </Helmet>
       <h2 className="text-2xl font-bold mb-4">Services To Do</h2>
-      {bookings.length === 0 ? (
+
+      {error && <p className="text-red-500 mb-4">{error}</p>}
+
+      {Array.isArray(bookings) && bookings.length === 0 ? (
         <p>No services assigned to you yet.</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {bookings.map(booking => (
             <div key={booking._id} className="border p-4 rounded shadow">
-              <img src={booking.serviceImage} alt="" className="w-full h-48 object-cover rounded mb-2" />
+              <img
+                src={booking.serviceImage}
+                alt=""
+                className="w-full h-48 object-cover rounded mb-2"
+              />
               <h3 className="text-xl font-semibold">{booking.serviceName}</h3>
-              <p><strong>Booked By:</strong> {booking.userName} ({booking.userEmail})</p>
+              <p>
+                <strong>Booked By:</strong> {booking.userName} ({booking.userEmail})
+              </p>
               <p><strong>Date:</strong> {booking.date}</p>
               <p><strong>Price:</strong> ${booking.price}</p>
-              <p className="text-sm text-gray-600"><strong>Instruction:</strong> {booking.specialInstruction}</p>
+              <p className="text-sm text-gray-600">
+                <strong>Instruction:</strong> {booking.specialInstruction}
+              </p>
               <div className="mt-3">
                 <label className="mr-2 font-medium">Status:</label>
                 <select

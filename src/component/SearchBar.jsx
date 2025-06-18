@@ -11,7 +11,7 @@ const SearchBar = () => {
     setQuery(value);
 
     if (value.trim()) {
-      const res = await fetch(`http://localhost:3000/search?q=${value}`);
+      const res = await fetch(`https://service-hub-server.vercel.app/search?q=${value}`);
       const data = await res.json();
       setResults(data);
     } else {

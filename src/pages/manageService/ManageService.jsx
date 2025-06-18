@@ -12,9 +12,7 @@ const ManageServices = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/addServices?providerEmail=${user.email}`,{
-        credentials: 'include'
-      })
+      fetch(`https://service-hub-server.vercel.app/addServices?providerEmail=${user.email}`)
         .then(res => res.json())
         .then(data => setServices(data));
     }
@@ -29,7 +27,7 @@ const ManageServices = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then(result => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/addServices/${id}`, {
+        fetch(`https://service-hub-server.vercel.app/addServices/${id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())
@@ -53,7 +51,7 @@ const ManageServices = () => {
       serviceArea: form.serviceArea.value
     };
 
-    fetch(`http://localhost:3000/addServices/${editingService._id}`, {
+    fetch(`https://service-hub-server.vercel.app/addServices/${editingService._id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updatedService)

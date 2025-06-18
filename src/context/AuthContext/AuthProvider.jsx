@@ -29,13 +29,13 @@ const AuthProvider = ({children}) => {
       setUser(currentUser)
       setLoading(false)
       if(currentUser?.email){
-        axios.post('http://localhost:3000/jwt', {email: currentUser.email}, {withCredentials: true})
+        axios.post('https://service-hub-server.vercel.app/jwt', {email: currentUser.email}, {withCredentials: true})
         .then(res => console.log(res.data))
         .catch(error => console.log(error))
       }
       // if(currentUser?.email){
       //   const userData = {email: currentUser.email}
-      //   axios.post('http://localhost:3000/jwt', userData,{
+      //   axios.post('https://service-hub-server.vercel.app/jwt', userData,{
       //     withCredentials: true
       //   })
       //   .then(res=> {

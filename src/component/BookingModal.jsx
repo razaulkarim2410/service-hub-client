@@ -21,7 +21,7 @@ const BookingModal = ({ service, user, onClose }) => {
       serviceStatus: 'pending',
     };
 
-    fetch('http://localhost:3000/bookings', {
+    fetch('https://service-hub-server.vercel.app/bookings', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(booking),
