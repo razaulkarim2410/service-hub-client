@@ -13,7 +13,7 @@ const ErrorPage = () => {
       <h2 className='font-bold text-7xl py-10 text-red-800'>Page Not Found</h2>
       <h2 className='font-bold text-5xl'>Error Page 404</h2>
       <img className='h-[500px]' src={error} alt="" />
-      <Link className='btn btn-primary' to={'/'}>Back To Home</Link>
+      <Link className='btn btn-outline btn-secondary px-20' to={'/'}>Back To Home</Link>
     </div>
   );
 };

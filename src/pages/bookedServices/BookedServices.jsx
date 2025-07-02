@@ -19,11 +19,11 @@ const BookedServices = () => {
   if (!user) return <Navigate to="/login" />;
 
   return (
-    <div className="p-6">
+    <div className="p-6 w-11/12 mx-auto mt-28">
       <Helmet>
         <title>My Booked Services</title>
       </Helmet>
-      <h2 className="text-2xl font-bold mb-4">My Booked Services</h2>
+      <h2 className="text-4xl font-bold text-pink-700 mb-4 text-center">My Booked Services</h2>
       {bookings.length === 0 ? (
         <p>You haven't booked any services yet.</p>
       ) : (
@@ -31,12 +31,12 @@ const BookedServices = () => {
           {bookings.map(booking => (
             <div key={booking._id} className="p-4 border rounded shadow">
               <img src={booking.serviceImage} alt="" className="w-full h-48 object-cover rounded mb-2" />
-              <h3 className="text-xl font-semibold">{booking.serviceName}</h3>
+              <h3 className="text-xl text-pink-700 font-semibold">{booking.serviceName}</h3>
               <p><strong>Provider:</strong> {booking.providerName}</p>
               <p><strong>Price:</strong> ${booking.price}</p>
               <p><strong>Date:</strong> {booking.date}</p>
-              <p><strong>Status:</strong> <span className="text-blue-600">{booking.serviceStatus}</span></p>
-              <p className="mt-2 text-gray-600"><strong>Instruction:</strong> {booking.specialInstruction}</p>
+              <p><strong>Status:</strong> <span className="text-pink-700">{booking.serviceStatus}</span></p>
+              <p className="mt-2 "><strong>Instruction:</strong> {booking.specialInstruction}</p>
             </div>
           ))}
         </div>

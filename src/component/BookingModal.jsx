@@ -38,15 +38,15 @@ const BookingModal = ({ service, user, onClose }) => {
   return (
     <div className="modal modal-open">
       <div className="modal-box space-y-4">
-        <h3 className="text-lg font-bold">Book Service</h3>
+        <h3 className="text-lg  font-bold">Book Service</h3>
         <p><strong>Service:</strong> {service.serviceName}</p>
         <p><strong>Provider:</strong> {service.providerName}</p>
         <p><strong>Price:</strong> ${service.price}</p>
         <input type="date" value={date} onChange={e => setDate(e.target.value)} className="input input-bordered w-full" />
         <textarea value={notes} onChange={e => setNotes(e.target.value)} placeholder="Special Instructions" className="textarea textarea-bordered w-full" />
         <div className="modal-action">
-          <button onClick={handlePurchase} className="btn btn-primary">Purchase</button>
-          <button onClick={onClose} className="btn">Cancel</button>
+          <button onClick={handlePurchase} className="btn btn-outline btn-secondary font-bold">Purchase</button>
+          <button onClick={onClose} className="btn  bg-pink-700 text-white hover:bg-white hover:text-pink-700">Cancel</button>
         </div>
       </div>
     </div>

@@ -75,7 +75,7 @@ const LogIn = () => {
       });
   }
   return (
-    <div className="hero bg-base-200 min-h-screen">
+    <div className="hero bg-base-200 min-h-screen pt-28">
       <Helmet>
         <title>LogIn</title>
       </Helmet>
@@ -86,7 +86,7 @@ const LogIn = () => {
         </div>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <div className="card-body">
-            <h1 className="text-5xl font-bold">Login now!</h1>
+            <h1 className="text-4xl font-bold text-center">Login now!</h1>
             <form onSubmit={handleLogin} className="card-body">
               <fieldset className="fieldset">
 
@@ -106,9 +106,9 @@ const LogIn = () => {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className='absolute btn btn-xs top-2 right-6'
+                    className='absolute top-3 right-4'
                   >
-                    <FaEye />
+                    <FaEye size={20}/>
                   </button>
                 </div>
 
@@ -121,7 +121,7 @@ const LogIn = () => {
                 </button>
                 
                 <button type='submit' className="btn btn-neutral mt-4">LogIn</button>
-                <p className='text-l font-bold pt-5'>Don't Have an Account ? {" "} <NavLink className='underline ' to={'/register'}>Register</NavLink></p>
+                <p className='text-l font-bold pt-5'>Don't Have an Account ? {" "} <NavLink className='underline  text-pink-700' to={'/register'}>Register</NavLink></p>
               </fieldset>
             </form>
           </div>

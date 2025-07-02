@@ -9,9 +9,9 @@ const AllServicesPage = () => {
   const allServices = useLoaderData();
 
   return (
-    <div className="p-5">
+    <div className="p-5 w-11/12 mx-auto mt-28">
       <Helmet><title>All Services</title></Helmet>
-      <h2 className="text-3xl text-center mb-8">All Services</h2>
+      <h2 className="text-4xl text-center font-bold text-pink-700  mb-8">All Services</h2>
       <div className="grid grid-cols-1 gap-6">
         {allServices.map(service => (
           <AllServices key={service._id} addService={service} />

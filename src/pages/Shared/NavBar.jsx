@@ -7,6 +7,7 @@ import logo from '../../assets/hub-icon.png';
 import { NavLink, useNavigate } from 'react-router';
 import SearchBar from '../../component/SearchBar';
 
+
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ const NavBar = () => {
       </li>
       <li>
         <NavLink className="btn btn-outline btn-secondary mx-2" to="/all-services">
-        Services
+          Services
         </NavLink>
       </li>
       {user && (
@@ -84,57 +85,70 @@ const NavBar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm px-4">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M3 5h14M3 10h14M3 15h14" clipRule="evenodd" />
-            </svg>
-          </label>
-          <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-50">
-            {links}
-          </ul>
-        </div>
-        <div className="flex items-center gap-2">
-          <img className="w-12 h-12 rounded-full" src={logo} alt="logo" />
-          <h2 className="text-2xl font-bold text-purple-700">
-            Service<span className="text-green-600">Hub</span>
-          </h2>
-        </div>
-      </div>
+    <div className='fixed top-0 left-0 right-0 z-50 ' >
 
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{links}</ul>
-      </div>
-      
-      <div className="navbar-end gap-2">
-        <SearchBar></SearchBar>
-        {/* Theme Toggle Button */}
-        <button className="btn btn-outline btn-primary" onClick={toggleTheme}>
-          {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
-        </button>
+      <div className='bg-base-100 shadow-sm w-full'>
+        <div className="navbar w-11/12 mx-auto flex flex-wrap lg:flex-nowrap items-center justify-between gap-3">
 
-        {/* User Avatar */}
-        <div className="relative group">
-          <img
-            className="w-10 h-10 rounded-full cursor-pointer"
-            src={user?.photoURL || img} // `img` is your fallback default
-            alt="User Avatar"
-          />
-          {user?.displayName && (
-            <div className="absolute left-0 mt-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-              {user.displayName}
+
+          <div className="navbar-start w-full lg:w-auto justify-between items-center">
+            <div className="dropdown dropdown-end lg:hidden">
+              <div tabIndex={0} role="button" className="btn btn-ghost">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M3 5h14M3 10h14M3 15h14" clipRule="evenodd" />
+                </svg>
+              </div>
+              <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-56 z-50">
+                {links}
+              </ul>
             </div>
-          )}
-        </div>
 
-        {/* Auth Buttons */}
-        {user ? (
-          <button onClick={handleLogout} className="btn btn-error text-white">LogOut</button>
-        ) : (
-          <NavLink to="/login" className="btn btn-success text-white">LogIn</NavLink>
-        )}
+
+
+            <div className="flex items-center gap-2">
+              <img className="w-8 h-8 rounded-full" src={logo} alt="logo" />
+              <h2 className="text-2xl font-bold text-pink-700">
+                Service<span className="text-pink-700">Hub</span>
+              </h2>
+            </div>
+          </div>
+
+          <div className="navbar-center hidden lg:flex">
+            <ul className="menu menu-horizontal px-1">{links}</ul>
+          </div>
+
+          <div className="navbar-end w-full lg:w-auto flex flex-wrap justify-center items-center gap-2 mt-2 lg:mt-0">
+            <div className="hidden sm:block">
+              <SearchBar></SearchBar>
+            </div>
+
+            {/* Theme Toggle Button */}
+            <button className="btn  bg-pink-700 text-white hover:bg-white hover:text-pink-700" onClick={toggleTheme}>
+              {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+            </button>
+
+            {/* User Avatar */}
+            <div className="relative group">
+              <img
+                className="w-10 h-10 rounded-full cursor-pointer"
+                src={user?.photoURL || img} // `img` is your fallback default
+                alt="User Avatar"
+              />
+              {user?.displayName && (
+                <div className="absolute left-0 mt-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  {user.displayName}
+                </div>
+              )}
+            </div>
+
+            {/* Auth Buttons */}
+            {user ? (
+              <button onClick={handleLogout} className="btn  bg-pink-700 text-white hover:bg-white hover:text-pink-700">LogOut</button>
+            ) : (
+              <NavLink to="/login" className="btn  bg-pink-700 text-white hover:bg-white hover:text-pink-700">LogIn</NavLink>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

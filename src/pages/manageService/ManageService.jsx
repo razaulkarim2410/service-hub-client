@@ -75,11 +75,11 @@ const ManageServices = () => {
   // if (!user) return <Navigate to="/login" />;
 
   return (
-    <div className="p-6">
+    <div className="p-6 mt-26 w-11/12 mx-auto">
       <Helmet>
         <title>Manage Your Services</title>
       </Helmet>
-      <h2 className="text-2xl font-bold mb-4">Manage Your Services</h2>
+      <h2 className=" font-bold mb-6 text-center text-pink-700 text-4xl">Manage Your Services</h2>
       {services.length === 0 ? (
         <p>No services added yet.</p>
       ) : (
@@ -87,20 +87,20 @@ const ManageServices = () => {
           {services.map(service => (
             <div key={service._id} className="p-4 border rounded shadow">
               <img src={service.imageUrl} alt="" className="w-full h-48 object-cover rounded mb-2" />
-              <h3 className="text-xl font-semibold">{service.serviceName}</h3>
+              <h3 className="text-xl text-pink-700 font-semibold">{service.serviceName}</h3>
               <p>{service.description}</p>
               <p><strong>Price:</strong> ${service.price}</p>
               <p><strong>Area:</strong> {service.serviceArea}</p>
-              <div className="mt-2 flex gap-2">
+              <div className="mt-2 flex gap-5 items-center justify-center">
                 <button
                   onClick={() => setEditingService(service)}
-                  className="btn btn-sm btn-warning"
+                  className="btn px-10 btn-outline btn-secondary"
                 >
                   Edit
                 </button>
                 <button
                   onClick={() => handleDelete(service._id)}
-                  className="btn btn-sm btn-error"
+                  className="btn px-10  bg-pink-700 text-white hover:bg-white hover:text-pink-700"
                 >
                   Delete
                 </button>
@@ -123,8 +123,8 @@ const ManageServices = () => {
             <input name="serviceArea" defaultValue={editingService.serviceArea} className="input input-bordered w-full mb-2" required />
             <textarea name="description" defaultValue={editingService.description} className="textarea textarea-bordered w-full mb-2" required />
             <div className="flex justify-end gap-2">
-              <button type="submit" className="btn btn-success btn-sm">Update</button>
-              <button onClick={() => setEditingService(null)} className="btn btn-sm">Cancel</button>
+              <button type="submit" className="btn btn-outline btn-secondary">Update</button>
+              <button onClick={() => setEditingService(null)} className="btn btn-outline btn-secondary">Cancel</button>
             </div>
           </form>
         </div>

@@ -37,16 +37,16 @@ const AddService = () => {
   };
 
   return (
-    <div className='p-10'>
+    <div className='p-10 mt-28'>
       <Helmet><title>Add Service</title></Helmet>
-      <h2 className='text-3xl font-bold text-center mb-8'>Add New Service</h2>
+      <h2 className='text-4xl font-bold text-pink-700 text-center mb-8'>Add New Service</h2>
       <form onSubmit={handleAddService} className='grid grid-cols-1 md:grid-cols-2 gap-6'>
         <input name="imageUrl" required placeholder="Image URL" className="input input-bordered w-full" />
         <input name="serviceName" required placeholder="Service Name" className="input input-bordered w-full" />
         <input name="price" required placeholder="Price" className="input input-bordered w-full" />
         <input name="serviceArea" required placeholder="Service Area" className="input input-bordered w-full" />
         <input name="description" required placeholder="Description" className="input input-bordered w-full col-span-2" />
-        <input type="submit" value="Add Service" className="btn btn-primary col-span-2" />
+        <input type="submit" value="Add Service" className="btn  bg-pink-700 text-white hover:bg-white hover:text-pink-700 col-span-2" />
       </form>
     </div>
   );

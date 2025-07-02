@@ -54,11 +54,11 @@ const ServiceToDo = () => {
   if (!user) return <Navigate to="/login" />;
 
   return (
-    <div className="p-6">
+    <div className="p-6 w-11/12 mx-auto mt-28">
       <Helmet>
         <title>Services To Do</title>
       </Helmet>
-      <h2 className="text-2xl font-bold mb-4">Services To Do</h2>
+      <h2 className="text-4xl text-pink-700 text-center font-bold mb-4">Services To Do</h2>
 
       {error && <p className="text-red-500 mb-4">{error}</p>}
 
@@ -73,13 +73,13 @@ const ServiceToDo = () => {
                 alt=""
                 className="w-full h-48 object-cover rounded mb-2"
               />
-              <h3 className="text-xl font-semibold">{booking.serviceName}</h3>
+              <h3 className="text-xl text-pink-700 font-semibold">{booking.serviceName}</h3>
               <p>
-                <strong>Booked By:</strong> {booking.userName} ({booking.userEmail})
+                <strong>Booked By:</strong> <span className='text-pink-700'>{booking.userName} ({booking.userEmail}</span>)
               </p>
               <p><strong>Date:</strong> {booking.date}</p>
               <p><strong>Price:</strong> ${booking.price}</p>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm ">
                 <strong>Instruction:</strong> {booking.specialInstruction}
               </p>
               <div className="mt-3">

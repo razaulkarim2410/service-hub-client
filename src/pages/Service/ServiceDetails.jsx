@@ -23,8 +23,8 @@ const ServiceDetails = () => {
   if (!service) return <p>Loading...</p>;
 
   return (
-    <div className="p-6">
-      <img src={service.imageUrl} alt={service.serviceName} className="w-full h-64 object-cover rounded" />
+    <div className="w-11/12 mx-auto">
+      <img src={service.imageUrl} alt={service.serviceName} className="w-full h-64 object-cover rounded-xl mt-22 pt-" />
       <h1 className="text-2xl font-bold mt-4">{service.serviceName}</h1>
       <p className="mt-2">{service.description}</p>
 
@@ -37,7 +37,7 @@ const ServiceDetails = () => {
       </div>
 
       <p className="mt-4 text-lg font-medium">Price: ${service.price}</p>
-      <button onClick={() => setShowModal(true)} className="btn btn-primary mt-4">Book Now</button>
+      <button onClick={() => setShowModal(true)} className="btn px-20 mt-4 btn-outline btn-secondary">Book Now</button>
 
       {showModal && (
         <BookingModal

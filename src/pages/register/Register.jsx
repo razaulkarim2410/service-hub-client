@@ -78,12 +78,12 @@ const Register = () => {
 
   }
   return (
-    <div className='flex justify-center items-center min-h-screen pt-12'>
+    <div className='flex justify-center items-center min-h-screen pt-40'>
       <Helmet>
         <title>Register</title>
       </Helmet>
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl ">
-        <h2 className='text-2xl font-bold text-center py-4'>Register Your Account</h2>
+        <h2 className='text-4xl font-bold text-center py-4'>Register Your Account</h2>
         <form onSubmit={handleRegister} className="card-body">
 
           <fieldset className="fieldset">
@@ -109,9 +109,9 @@ const Register = () => {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className='absolute btn btn-xs top-2 right-6'
+                className='absolute  top-2 right-6'
               >
-                <FaEye />
+                <FaEye  size={20}/>
               </button>
             </div>
 
@@ -125,7 +125,7 @@ const Register = () => {
             >
               <FcGoogle /> Sign in With Google
             </button>
-            <p className='text-l font-bold pt-5'>Already Have an Account ?{" "} <Link className='underline font-bold ' to={'/login'}>LogIn</Link></p>
+            <p className='text-l font-bold pt-5'>Already Have an Account ?{" "} <Link className='underline font-bold text-pink-700 ' to={'/login'}>LogIn</Link></p>
           </fieldset>
         </form>
       </div>

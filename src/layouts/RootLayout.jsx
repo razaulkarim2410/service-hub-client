@@ -7,7 +7,7 @@ import Loading from '../pages/loading/Loading';
 const RootLayout = () => {
   const {state} = useNavigate()
   return (
-    <div className='w-11/12 mx-auto'>
+    <div className=' mx-auto'>
       <Navbar></Navbar>
       {state =="loading"? <Loading/> : <Outlet></Outlet> }
       <Footer></Footer>
