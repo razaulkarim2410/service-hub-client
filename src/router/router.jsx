@@ -18,6 +18,8 @@ import DailyLifeServices from "../pages/Shared/DailyLifeServices";
 
 import PrivateRoute from "../pages/Shared/PrivateRoute";
 import DashboardLayout from "../layouts/DashboardLayout"; // import your new DashboardLayout
+import AboutUs from "../pages/Shared/AboutUs";
+import Contact from "../pages/Shared/Contact";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +69,14 @@ const router = createBrowserRouter([
       {
         path: "/privacyPolicy",
         Component: PrivacyPolicy,
+      },
+      {
+        path: "/about-us",
+        Component: AboutUs
+      },
+      {
+        path: "/contact",
+        Component: Contact
       },
       // Dashboard parent route with nested children
       {
