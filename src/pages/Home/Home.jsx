@@ -10,6 +10,7 @@ import { animate } from 'motion';
 
 import MarqueeCardSection from '../Shared/MarqueeCardSection';
 import ClientReviewCarousel from '../Shared/ClientReviewCarousel ';
+import HowItWorks from '../Shared/HowItWorks';
 
 
 const Home = () => {
@@ -38,6 +39,7 @@ const Home = () => {
         <Link to="/all-services" className="btn btn-outline btn-secondary  px-40 text-2xl font-bold">Show All</Link>
 
       </div>
+      <HowItWorks></HowItWorks>
       <WhyUs></WhyUs>
       <MarqueeCardSection></MarqueeCardSection>
       <ShowAll></ShowAll>
