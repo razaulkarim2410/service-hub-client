@@ -1,24 +1,23 @@
-import {
-  createBrowserRouter,
-} from "react-router";
+import { createBrowserRouter } from "react-router";
 import RootLayout from "../layouts/RootLayout";
 import Home from "../pages/Home/Home";
 import LogIn from "../pages/logIn/LogIn";
-import Service from "../pages/Service/ServiceDetails";
 import Register from "../pages/register/Register";
+import ServiceDetails from "../pages/Service/ServiceDetails";
+import AllServicesPage from "../pages/allServicessPage/AllServicesPage";
 import AddService from "../pages/addService/AddService";
-import ManageService from "../pages/manageService/ManageService";
+import ManageServices from "../pages/manageService/ManageService";
 import BookedServices from "../pages/bookedServices/BookedServices";
 import ServiceToDo from "../pages/serviceToDo/ServiceToDo";
 import PrivacyPolicy from "../pages/Shared/PrivacyPolicy";
 import ErrorPage from "../pages/errorPage/ErrorPage";
-import AllServicesPage from "../pages/allServicessPage/AllServicesPage";
-
-import ServiceDetails from "../pages/Service/ServiceDetails";
-import PrivateRoute from "../pages/Shared/PrivateRoute";
-import ManageServices from "../pages/manageService/ManageService";
 import Loading from "../pages/loading/Loading";
 import ServicePlanDetails from "../pages/Shared/ServicePlanDetails";
+import HelpDetail from "../pages/Shared/HelpDetail";
+import DailyLifeServices from "../pages/Shared/DailyLifeServices";
+
+import PrivateRoute from "../pages/Shared/PrivateRoute";
+import DashboardLayout from "../layouts/DashboardLayout"; // import your new DashboardLayout
 
 const router = createBrowserRouter([
   {
@@ -27,69 +26,82 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('https://service-hub-server.vercel.app/addServices'),
+        loader: () => fetch("https://service-hub-server.vercel.app/addServices"),
         Component: Home,
-        hydrateFallbackElement: <Loading></Loading>,
-        
+        hydrateFallbackElement: <Loading />,
       },
       {
-        path: '/services/:id',
-        element: <PrivateRoute>
-          <ServiceDetails></ServiceDetails>
-        </PrivateRoute>
+        path: "/services/:id",
+        element: (
+          <PrivateRoute>
+            <ServiceDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/all-services",
         Component: AllServicesPage,
-        loader: () => fetch('https://service-hub-server.vercel.app/addServices'),
-        hydrateFallbackElement: <Loading></Loading>,
-      },
-      {
-        path: '/dashboard/add-service',
-        Component: AddService,
-      },
-      {
-        path: '/dashboard/manage-service',
-       element:<PrivateRoute>
-        <ManageServices></ManageServices>
-       </PrivateRoute>,
-      },
-      {
-        path: '/dashboard/booked-services',
-        element: <PrivateRoute>
-          <BookedServices></BookedServices>
-        </PrivateRoute>,
-      },
-      {
-        path: '/dashboard/service-to-do',
-        element: <PrivateRoute>
-          <ServiceToDo></ServiceToDo>
-        </PrivateRoute>,
+        loader: () => fetch("https://service-hub-server.vercel.app/addServices"),
+        hydrateFallbackElement: <Loading />,
       },
       {
         path: "/plan-details",
-        Component:ServicePlanDetails,
+        Component: ServicePlanDetails,
       },
       {
-        path: '/login',
+        path: "/help-details",
+        Component: HelpDetail,
+      },
+      {
+        path: "/simplify-details",
+        Component: DailyLifeServices,
+      },
+      {
+        path: "/login",
         Component: LogIn,
       },
       {
-        path: '/register',
+        path: "/register",
         Component: Register,
       },
       {
-        path: '/privacyPolicy',
-        Component: PrivacyPolicy
-      }
-
-    ]
-
+        path: "/privacyPolicy",
+        Component: PrivacyPolicy,
+      },
+      // Dashboard parent route with nested children
+      {
+        path: "/dashboard",
+        element: (
+          <PrivateRoute>
+            <DashboardLayout />
+          </PrivateRoute>
+        ),
+        children: [
+          {
+            path: "add-service",
+            Component: AddService,
+          },
+          {
+            path: "manage-service",
+            Component: ManageServices,
+          },
+          {
+            path: "booked-services",
+            Component: BookedServices,
+          },
+          {
+            path: "service-to-do",
+            Component: ServiceToDo,
+          },
+          // add more dashboard nested routes here if needed
+        ],
+      },
+    ],
   },
   {
-    path: '/*',
-    Component: ErrorPage
-  }
+    path: "/*",
+    Component: ErrorPage,
+  },
 ]);
 
 export default router;
