@@ -18,6 +18,7 @@ import ServiceDetails from "../pages/Service/ServiceDetails";
 import PrivateRoute from "../pages/Shared/PrivateRoute";
 import ManageServices from "../pages/manageService/ManageService";
 import Loading from "../pages/loading/Loading";
+import ServicePlanDetails from "../pages/Shared/ServicePlanDetails";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <ServiceToDo></ServiceToDo>
         </PrivateRoute>,
+      },
+      {
+        path: "/plan-details",
+        Component:ServicePlanDetails,
       },
       {
         path: '/login',
