@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 import RootLayout from "../layouts/RootLayout";
 import Home from "../pages/Home/Home";
 import LogIn from "../pages/logIn/LogIn";
@@ -20,6 +20,7 @@ import PrivateRoute from "../pages/Shared/PrivateRoute";
 import DashboardLayout from "../layouts/DashboardLayout"; // import your new DashboardLayout
 import AboutUs from "../pages/Shared/AboutUs";
 import Contact from "../pages/Shared/Contact";
+import DashboardHome from "../pages/dashboard/DashboardHome";
 
 const router = createBrowserRouter([
   {
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         children: [
+          {
+            index: true, // Default dashboard page
+            Component: DashboardHome,
+          },
           {
             path: "add-service",
             Component: AddService,
