@@ -16,16 +16,23 @@ const Footer = () => {
           </div>
           
 
-          <p>Email: privacy@servicehub.com</p>
-          <p>Address: ServiceHub Inc., 123 Tech Lane, <br /> City Center, CA 90001, USA</p>
+          
+            <p>House #123, Road #45, Block D</p>
+            <p>Banani, Dhaka 1213</p>
+            <p>Bangladesh</p>
+            <p>Phone: +880 1234 567890</p>
+            <p>Email: support@servicehub.com</p>
+          
         </nav>
         <nav>
           <h6 className=" font-bold text-xl">Company & Legal</h6>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Terms of use</a>
+          
+          <Link to={'/terms'} className="link link-hover">Terms of use</Link>
           <Link to={'/privacyPolicy'} className="link link-hover">Privacy policy</Link>
-          <a className="link link-hover">Cookie policy</a>
+          <Link to={'/cookiePolicy'} className="link link-hover">Cookie policy</Link>
+          <Link to={'/support'} className="link link-hover">Support</Link>
+          <Link to={'/faq'} className="link link-hover">FAQ</Link>
+         
         </nav>
         <nav>
           <FindUs></FindUs>

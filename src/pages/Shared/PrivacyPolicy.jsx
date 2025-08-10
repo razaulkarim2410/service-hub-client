@@ -3,7 +3,7 @@ import React from 'react';
 const PrivacyPolicy = () => {
   return (
     <div className='w-11/12 mx-auto'>
-      <p className='text-5xl pt-8 mb-5 text-center'> Privacy Policy</p>
+      <p className='text-3xl pt-20 mb-5 font-bold text-center'> Privacy Policy</p>
 
       <p className='py-3 text-xl'>At ServiceHub, your privacy is important to us. This Privacy Policy describes how we collect, use, share, and protect your personal information when you use our platform to access services such as home repairs, beautification, emergency ambulance assistance, electrical product servicing, and other related offerings.</p> 
 

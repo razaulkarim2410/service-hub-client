@@ -21,6 +21,10 @@ import DashboardLayout from "../layouts/DashboardLayout"; // import your new Das
 import AboutUs from "../pages/Shared/AboutUs";
 import Contact from "../pages/Shared/Contact";
 import DashboardHome from "../pages/dashboard/DashboardHome";
+import CookiePolicy from "../pages/Shared/CookiePolicy";
+import TermsOfUse from "../pages/Shared/TermsOfUse";
+import Support from "../pages/Shared/Support";
+import FooterFAQ from "../pages/Shared/FooterFaq";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +74,22 @@ const router = createBrowserRouter([
       {
         path: "/privacyPolicy",
         Component: PrivacyPolicy,
+      },
+      {
+        path: "/cookiePolicy",
+        Component: CookiePolicy
+      },
+      {
+        path: "/terms",
+        Component: TermsOfUse
+      },
+      {
+        path: "/support",
+        Component: Support
+      },
+      {
+        path: "/faq",
+        Component: FooterFAQ
       },
       {
         path: "/about-us",

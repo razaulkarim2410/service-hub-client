@@ -30,7 +30,7 @@ const HowItWorks = () => {
     >
       <div className="text-center px-6">
         {/* Section Title */}
-        <h2 className="text-4xl font-bold text-gray-800 mb-4">How It Works</h2>
+        <h2 className="text-4xl  font-bold text-pink-700  mb-4">How It Works</h2>
         <p className="text-gray-600 max-w-2xl mx-auto mb-12">
           Getting started with ServiceHub is easy. Follow these three simple
           steps and get the service you need in no time.
