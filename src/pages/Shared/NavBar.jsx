@@ -71,7 +71,7 @@ const NavBar = () => {
   };
 
   const navLinkClass = ({ isActive }) =>
-    `px-3 py-2  cursor-pointer ${isActive ? 'text-pink-700 font-bold' : 'text-gray-700'} transition-colors`;
+    ` py-2  cursor-pointer ${isActive ? 'text-pink-700 font-bold' : ''} transition-colors`;
 
   const links = (
     <>
@@ -130,7 +130,7 @@ const NavBar = () => {
 
         {/* Center Links (Desktop) */}
         <div className="hidden lg:flex flex-1 justify-center">
-          <ul className="flex space-x-6">{links}</ul>
+          <ul className="flex space-x-4">{links}</ul>
         </div>
 
         {/* Right Section (Desktop) */}

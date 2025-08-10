@@ -41,10 +41,10 @@ const Contact = () => {
         {/* Contact Info */}
         <div>
           <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
-          <p className="mb-4 text-gray-700">
+          <p className="mb-4 ">
             Have questions or need support? We're here to help! Reach out via form or the contact details below.
           </p>
-          <div className="text-gray-700 space-y-1">
+          <div className=" space-y-1">
             <p><strong>ServiceHub Office</strong></p>
             <p>House #123, Road #45, Block D</p>
             <p>Banani, Dhaka 1213</p>
@@ -116,7 +116,7 @@ const Contact = () => {
           >
             Send Message
           </button>
-          {status && <p className="mt-2 text-green-600">{status}</p>}
+          {status && <p className="mt-2">{status}</p>}
         </form>
       </div>
 

@@ -21,8 +21,8 @@ const DashboardLayout = () => {
   };
 
   const navItemClass = ({ isActive }) =>
-    `px-3 py-2  cursor-pointer ${isActive ? 'text-pink-700 font-bold' : 'text-gray-700'} transition-colors`;
-      
+    `px-3   cursor-pointer ${isActive ? 'text-pink-700 font-bold' : 'text-gray-700'} transition-colors`;
+
 
   if (!user) {
     return (
@@ -40,7 +40,7 @@ const DashboardLayout = () => {
 
       {/* Sidebar */}
       <aside className="w-full md:w-64 bg-white shadow-md p-6 relative min-h-screen flex flex-col">
-        <h2 className="text-3xl font-bold text-pink-700 mb-6">ServiceHub</h2>
+        <h2 className="text-3xl font-bold text-pink-700  mt-10 pb-10">Dashboard</h2>
         <nav className="flex text-xl text-l flex-col gap-3 flex-grow overflow-auto pr-2">
           <NavLink to="/" className={navItemClass} end>
             Home
@@ -57,16 +57,17 @@ const DashboardLayout = () => {
           <NavLink to="/dashboard/service-to-do" className={navItemClass}>
             Service To-Do
           </NavLink>
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-2 text-red-600 hover:text-red-800 px-3 py-2 rounded cursor-pointer"
+          >
+            <FaSignOutAlt />
+            Logout
+          </button>
         </nav>
 
-        {/* Fixed Logout button at bottom */}
-        <button
-          onClick={handleLogout}
-          className="flex items-center gap-2 text-red-600 hover:text-red-800 absolute bottom-6 left-6 right-6"
-        >
-          <FaSignOutAlt />
-          Logout
-        </button>
+        
+
       </aside>
 
       {/* Main content */}

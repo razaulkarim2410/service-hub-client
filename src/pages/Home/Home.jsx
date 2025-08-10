@@ -30,7 +30,7 @@ const Home = () => {
       style={{ opacity: 0, transform: 'translateY(30px)' }}>
       <Helmet><title>Home</title></Helmet>
       <Banner />
-      <h2 className="text-4xl font-bold text-pink-700 text-center my-6">Popular Services</h2>
+      <h2 className="text-4xl font-bold text-pink-700 text-center my-6">Our All Services</h2>
       <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-2 px-5">
         {topSixServices.map(service => (
           <AllServices key={service._id} addService={service} />

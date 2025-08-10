@@ -8,7 +8,7 @@ const AboutUs = () => {
 
       <div className="flex flex-col md:flex-row items-center gap-10">
         {/* Text Content */}
-        <div className="md:w-1/2 text-gray-700 leading-relaxed space-y-6">
+        <div className="md:w-1/2  leading-relaxed space-y-6">
           <p>
             ServiceHub is a full-service marketplace connecting customers with trusted service providers across various categories.
             We strive to deliver exceptional user experience through a secure, easy-to-use platform.

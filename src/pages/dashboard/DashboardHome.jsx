@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const DashboardHome = () => {
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold text-pink-700 pt-16 text-center mb-6">
+      <h1 className="text-4xl font-bold text-pink-700 md:pt-22  text-center mb-6">
         Welcome to ServiceHub Dashboard
       </h1>
       <p className="text-lg mb-8 text-gray-700 text-center max-w-2xl mx-auto">
@@ -35,13 +35,14 @@ const DashboardHome = () => {
         ].map(({ title, description }) => (
           <motion.div
             key={title}
-            className="p-6 bg-white shadow-md rounded-lg cursor-pointer min-h-[170px]"
+            className="p-6 bg-white dark:bg-gray-800 shadow-md rounded-lg cursor-pointer min-h-[170px]"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
-            <h2 className="text-2xl font-semibold mb-3 text-center">{title}</h2>
-            <p>{description}</p>
+            <h2 className="text-2xl font-semibold mb-3 text-center text-gray-900 dark:text-white">{title}</h2>
+            <p className="text-gray-700 dark:text-gray-300">{description}</p>
           </motion.div>
+
         ))}
       </div>
     </div>
